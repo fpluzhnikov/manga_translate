@@ -1,1 +1,1 @@
-# manga_translate
+# HSE Lyceum IT Projects - manga translate
