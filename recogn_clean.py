@@ -1,5 +1,6 @@
 import easyocr
 import cv2
+import numpy as np
 from getting_image.py import image_path
 
 # Создаем объект Reader для русского и английского языков
