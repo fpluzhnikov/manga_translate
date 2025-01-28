@@ -16,24 +16,19 @@ def send_welcome(message):
 @bot.message_handler(content_types=['photo'])
 def handle_image(message):
     try:
-        # Скачиваем изображение
         file_info = bot.get_file(message.photo[-1].file_id)
         downloaded_file = bot.download_file(file_info.file_path)
 
-        # Сохраняем изображение
         image_path = 'input_image.jpg'
         with open(image_path, 'wb') as new_file:
             new_file.write(downloaded_file)
 
-        # Запускаем addt.py с аргументами
         subprocess.run(["python", "addt.py", image_path, "Пример текста", "arial.ttf", "output.jpg"])
 
-        # Отправляем результат пользователю
         with open("result.jpg", "rb") as result_file:
             bot.send_photo(message.chat.id, result_file)
             print('Картинка переведена')
 
-        # Удаляем временные файлы
         os.remove(image_path)
         os.remove("result.jpg")
         os.remove("output_image.jpg")
