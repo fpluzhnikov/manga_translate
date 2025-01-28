@@ -107,7 +107,6 @@ y02 = y4-((y4-y3)//16*3)
 max_w = x02-x01
 max_h = y02-y01
 
-# Позиция и размер прямоугольника
 rectangle_position = (x01, y01, x02, y02)
 top_left = (rectangle_position[0], rectangle_position[1])
 bottom_right = (rectangle_position[2], rectangle_position[3])
@@ -119,7 +118,3 @@ cv2.rectangle(rect_image, (x01, y01), (x02, y02), (255, 0, 0), 2)
 
 rectangle_image_path = 'rectangle_image_with_rectangle.jpg'
 cv2.imwrite(rectangle_image_path, rect_image)
-
-# cv2.imshow('Image with Rectangle', rect_image)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
